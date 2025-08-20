@@ -7,69 +7,60 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    /* base */
+    :root { --btn: #2f9bd1; --btn-hover:#2483b3; }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       padding: 0;
-      font-family: system-ui, sans-serif;
-      background: #fff;
+      font-family: 'Onest', sans-serif;
+      background: linear-gradient(-45deg, #f6fbff, #eaf5ff, #f6fbff);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
       color: #222;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-    .card {
       text-align: center;
-      padding: 2.5rem 3rem;
-      border-radius: 1rem;
-      border: 1px solid #eee;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-      max-width: 400px;
     }
-    h1 {
-      margin-bottom: 2rem;
-      font-size: 2rem;
-      font-weight: 600;
-    }
-    a {
+
+    /* button */
+    a.btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
+      gap: 0.5rem;            /* расстояние между иконкой и текстом */
+      padding: 0.85rem 1.1rem 0.85rem 0.9rem; /* уменьшен правый отступ */
+      border-radius: 12px;    /* более квадратная форма */
       text-decoration: none;
-      background: #0088cc;
-      color: white;
-      font-weight: 500;
-      transition: background 0.3s;
+      background: var(--btn);
+      color: #fff;
+      font-weight: 400;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform .2s ease, background .25s ease, box-shadow .25s ease;
+      animation: fadeInUp 0.8s ease;
+      box-shadow: 0 2px 0 rgba(0,0,0,.05);
     }
-    a:hover {
-      background: #0077b3;
-    }
-    svg {
-      width: 20px;
-      height: 20px;
-      fill: white;
-    }
+    a.btn:hover { background: var(--btn-hover); transform: translateY(-2px); }
+    a.btn:active { transform: translateY(0); box-shadow: 0 0 0 rgba(0,0,0,0); }
+
+    /* icon */
+    .btn svg { width: 20px; height: 17px; fill: #fff; transition: transform .25s ease; }
+    .btn:hover svg { transform: scale(1.15) rotate(4deg); }
+
+    @keyframes fadeInUp { from { opacity:0; transform: translateY(20px);} to { opacity:1; transform: translateY(0);} }
+    @keyframes gradientMove { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Привет 👋</h1>
-    <a href="https://t.me/chobotar" target="_blank">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
-        <path d="M248 8C111 8 0 119 0 256s111 248 248 
-        248 248-111 248-248S385 8 248 8zm121.3 
-        169.9-40.7 191.7c-3 13.6-11.1 16.9-22.4 
-        10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 
-        6.1-12.4 6.1l4.4-63.1 114.9-103.6c5-4.4-1.1-6.9-7.7-2.5L175.5 
-        290l-49.3-15.4c-10.7-3.3-10.9-10.7 
-        2.2-16.1l192.7-74.3c8.8-3.3 16.5 2.2 
-        13.2 16.1z"/>
-      </svg>
-      Мой Telegram
-    </a>
-  </div>
+  <a class="btn" href="https://t.me/chobotar" target="_blank" rel="noopener">
+    <svg viewBox="0 0 13 11" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M11.3607 0.268728C11.5151 0.203723 11.6842 0.181303 11.8502 0.203801C12.0163 0.2263 12.1733 0.292896 12.3048 0.396656C12.4364 0.500417 12.5378 0.637549 12.5984 0.79378C12.659 0.95001 12.6766 1.11963 12.6494 1.28498L11.2319 9.8831C11.0944 10.7125 10.1844 11.1881 9.42378 10.775C8.78753 10.4294 7.84253 9.89685 6.99253 9.34123C6.56753 9.0631 5.26565 8.17248 5.42565 7.53873C5.56315 6.99685 7.75065 4.9606 9.00065 3.74998C9.49128 3.27435 9.26753 2.99998 8.68815 3.43748C7.2494 4.52373 4.9394 6.1756 4.17565 6.6406C3.5019 7.0506 3.15065 7.1206 2.73065 7.0506C1.9644 6.9231 1.25378 6.7256 0.673778 6.48498C-0.109972 6.15998 -0.0718474 5.08248 0.673153 4.76873L11.3607 0.268728Z"/>
+    </svg>
+    моя телега
+  </a>
 </body>
 </html>
